@@ -2,10 +2,9 @@ const { BLOG_API_ENDPOINT } = require("../helpers/config");
 import DynamicBlocks from "../components/blocks/DynamicBlocks";
 
 export default function Pages({ Page }) {
+  console.log(Page);
   return (
     <section>
-      <h1>{Page.slug}</h1>
-      {/* <p>{Page.block.title}</p> */}
       <section className="flexible-content-modules">
         { Page.blocks ? Page.blocks.map((contentModule, index) => (
           <DynamicBlocks key={contentModule.__component + contentModule.id} contentModule={contentModule}  />

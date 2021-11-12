@@ -6,7 +6,7 @@ function RichTextComponent(props) {
   const { contentModule } = props;
   return (
     <section key={`${contentModule.__component}-${contentModule.id}`} className={classes.oContent}>
-      <ReactMarkdown class="container">
+      <ReactMarkdown className={`container`}>
         {contentModule.content}
       </ReactMarkdown>
     </section>

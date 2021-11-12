@@ -1,24 +1,22 @@
-// COMPONENT [ HERO BLOCK ] ###########################################################################################
+// COMPONENT [ CONTENT BLOCK ] ########################################################################################
 @import "scss/.base/module-index";
 
-.oHomePage {
-
-  background-color: #070b0e;
+.blockWrapper {
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .oHeroBlock { background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-color: orange;
 
-    .oContentRow { max-height: 600px; @include aspect-ratio(100%, 56.5%); }
-    .oImageBlock { align-self: center; }
-  }
+  .a_KD_Wow { background-color: blue; display: block }
+
+
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
   @media ($md-dn) {
-    background-color: pink;
+    background-color: orange;
   }
 
   @media ($sm-dn) {}

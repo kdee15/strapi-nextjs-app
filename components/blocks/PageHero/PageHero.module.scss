@@ -1,27 +1,26 @@
 // COMPONENT [ HERO BLOCK ] ###########################################################################################
 @import "scss/.base/module-index";
 
-.oHomePage {
-
-  background-color: #070b0e;
+.oPageHeroBlock { position: relative;
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .oHeroBlock { background-size: cover; background-position: center; background-repeat: no-repeat;
-
-    .oContentRow { max-height: 600px; @include aspect-ratio(100%, 56.5%); }
-    .oImageBlock { align-self: center; }
+  .oBackgroundBlock {
+    @include position(absolute, 0); @include aspect-ratio(100%, 30%); overflow: hidden; max-height: 300px;
+    img { @include middle-align(); width: 100%; height: auto; }
   }
+
+  .aTitle { @include vertical-align(absolute); }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
-  @media ($md-dn) {
-    background-color: pink;
+  @media ($ss-dn) {
+    .oBackgroundBlock { @include aspect-ratio(100%, 70%);
+      img { width: auto; height: 100%; }
+    }
   }
-
-  @media ($sm-dn) {}
 
   // B. END +++++++++++++++++++++++++++++++++++++++++++++++
 

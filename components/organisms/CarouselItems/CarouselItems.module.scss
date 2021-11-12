@@ -1,17 +1,11 @@
-// COMPONENT [ HERO BLOCK ] ###########################################################################################
-@import "scss/.base/module-index";
+// COMPONENT [ CONTENT BLOCK ] ########################################################################################
+@import "../../../scss/.base/module-index";
 
-.oHomePage {
-
-  background-color: #070b0e;
+.oContent {
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .oHeroBlock { background-size: cover; background-position: center; background-repeat: no-repeat;
-
-    .oContentRow { max-height: 600px; @include aspect-ratio(100%, 56.5%); }
-    .oImageBlock { align-self: center; }
-  }
+  background-color: green;
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 

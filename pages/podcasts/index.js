@@ -1,55 +1,30 @@
-const Home = ({ podcasts, error }) => {
-  if (error) {
-    return <div>An error occured: {error.message}</div>;
-  }
+import { fetchQuery } from "../../helpers/utils";
+import { PodcastsCard } from "../../components/organisms/PodcastsCard/PodcastsCard";
+import PageHero from "../../components/blocks/PageHero/PageHero";
+
+export default function PodcastList({ Podcasts }) {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-6">
-          <ul className="kd-wow">
-            {podcasts.map((podcasts) => (
-              <li key={podcasts.id}>
-                <span>{podcasts.Title}</span>
-                <span>{podcasts.Description}</span>
-              </li>
+    <section className={`o-podcast-listings`}>
+      <section className="o-block-podcasts">
+        <div className="container">
+          <div className="row">
+            {Podcasts.map((Podcast) => (
+              <article className="col-12 col-md-3" key={Podcast.id}>
+                <PodcastsCard Podcast={Podcast} />
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
-};
+}
 
-Home.getInitialProps = async (ctx) => {
-  try {
-    // Parses the JSON returned by a network request
-    const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-    // Checks if a network request came back fine, and throws an error if not
-    const checkStatus = (resp) => {
-      if (resp.status >= 200 && resp.status < 300) {
-        return resp;
-      }
-
-      return parseJSON(resp).then((resp) => {
-        throw resp;
-      });
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
-    const podcasts = await fetch("http://localhost:1337/podcasts", {
-      method: "GET",
-      headers,
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-
-    return { podcasts };
-  } catch (error) {
-    return { error };
-  }
-};
-
-export default Home;
+export async function getServerSideProps() {
+  const Podcasts = await fetchQuery("Podcasts");
+  return {
+    props: {
+      Podcasts,
+    },
+  };
+}
