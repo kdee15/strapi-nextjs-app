@@ -245,16 +245,9 @@ $fnt16f-minLH-xs: 22; // minimum line height at smallest screen size
 $fnt16f-maxLH-md: 24; // maximum line height at largest screen size
 $fnt16f-maxLH: 24; // failsafe for larger screens
 
-.a-fnt-16f,
-.a-fnt-16f * {
-  font-size: calc(
-          #{$fnt16f-min-xs}px + (#{$fnt16f-max-md} - #{$fnt16f-min-xs}) *
-          ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs}))
-  );
-  line-height: calc(
-          #{$fnt16f-minLH-xs}px + (#{$fnt16f-maxLH-md} - #{$fnt16f-minLH-xs}) *
-          ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs}))
-  );
+p, p *, .a-fnt-16f, .a-fnt-16f * {
+  font-size: calc( #{$fnt16f-min-xs}px + (#{$fnt16f-max-md} - #{$fnt16f-min-xs}) * ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs})));
+  line-height: calc(#{$fnt16f-minLH-xs}px + (#{$fnt16f-maxLH-md} - #{$fnt16f-minLH-xs}) * ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs})));
 }
 
 // END: 16px fixed ----------
@@ -291,29 +284,6 @@ $fnt16s-maxLH: 21; // failsafe for larger screens
 }
 
 // END: 20px fixed ----------
-
-// Body Small ---------------
-$fntSml-min-xs: 14; // minimum font size at smallest screen size
-$fntSml-max-md: 14; // maximum font size at largest screen size
-$fntSml-max: 14; // failsafe for larger screens
-
-$fntSml-minLH-xs: 24; // minimum line height at smallest screen size
-$fntSml-maxLH-md: 24; // maximum line height at largest screen size
-$fntSml-maxLH: 24; // failsafe for larger screens
-
-.a-fnt-sml,
-.a-fnt-sml * {
-  font-size: calc(
-          #{$fntSml-min-xs}px + (#{$fntSml-max-md} - #{$fntSml-min-xs}) *
-          ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs}))
-  );
-  line-height: calc(
-          #{$fntSml-minLH-xs}px + (#{$fntSml-maxLH-md} - #{$fntSml-minLH-xs}) *
-          ((100vw - #{$view-min-xs}px) / (#{$view-max-md} - #{$view-min-xs}))
-  );
-}
-
-// END: Body Small ----------
 
 // A.3.1. END ---------------------------------------------
 
@@ -478,18 +448,9 @@ h4,
 // E. MIN-WIDTH: 1900px +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 @media ($hd-up) {
-  .a-fnt-16,
-  .a-fnt-16 * {
-    font-size: $fnt16-max + px; line-height: $fnt16-maxLH + px;
-  }
-  .a-fnt-16f,
-  .a-fnt-16f * {
-    font-size: $fnt16f-max + px; line-height: $fnt16f-maxLH+px;
-  }
-  .a-fnt-16s,
-  .a-fnt-16s * {
-    font-size: $fnt16s-max + px; line-height: $fnt16s-maxLH + px;
-  }
+  .a-fnt-16, .a-fnt-16 * { font-size: $fnt16-max + px; line-height: $fnt16-maxLH + px; }
+  .a-fnt-16f, .a-fnt-16f * { font-size: $fnt16f-max + px; line-height: $fnt16f-maxLH+px; }
+  .a-fnt-16s, .a-fnt-16s * { font-size: $fnt16s-max + px; line-height: $fnt16s-maxLH + px; }
   .a-fnt-32,
   .a-fnt-32 * {
     font-size: $fnt32-max + px; line-height: $fnt32-maxLH + px;

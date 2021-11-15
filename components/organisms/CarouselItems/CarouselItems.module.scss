@@ -5,15 +5,11 @@
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  background-color: green;
-
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
-  @media ($md-dn) {
-    background-color: pink;
-  }
+  @media ($md-dn) {}
 
   @media ($sm-dn) {}
 

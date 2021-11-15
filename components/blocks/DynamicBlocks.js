@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero/Hero";
 import PageHero from "./PageHero/PageHero";
 import RichTextComponent from "./RichTextComponent/RichTextComponent";
+import TextImageComponent from "./TextImageComponent/TextImageComponent";
 import Carousel from "./Carousel/Carousel";
 
 function DynamicBlocks(props) {
@@ -15,6 +16,8 @@ function DynamicBlocks(props) {
       return <RichTextComponent contentModule={contentModule}/>
     case 'blocks.carousel':
       return <Carousel contentModule={contentModule}/>
+    case 'blocks.text-image-block':
+      return <TextImageComponent contentModule={contentModule}/>
     default:
       return <div><h1>component not found</h1></div>
   }

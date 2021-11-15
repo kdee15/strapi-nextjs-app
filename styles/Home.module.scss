@@ -1,4 +1,4 @@
-// COMPONENT [ HERO BLOCK ] ###########################################################################################
+// PAGE LAYOUT [ HOMEPAGE ] ###########################################################################################
 @import "scss/.base/module-index";
 
 .oHomePage {
@@ -7,19 +7,30 @@
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .oHeroBlock { background-size: cover; background-position: center; background-repeat: no-repeat;
+  .aArrowIcon {
+    path { fill: $green; }
+  }
 
-    .oContentRow { max-height: 600px; @include aspect-ratio(100%, 56.5%); }
-    .oImageBlock { align-self: center; }
+  .oLatestPodcastBlock { padding: 50px 0;
+    .aBlockTitle { text-align: center; margin-bottom: 50px; }
+    .aPodcastIcon {  display: inline-block; vertical-align: middle;
+      path { fill: $green; }
+    }
+    .aArrowIcon { width: 150px; transform: rotate(-90deg); display: inline-block; vertical-align: middle; margin-bottom: 30px; }
+    .oColFeatured { order: 1; }
+    .oColPodcasts { order: 2; text-align: center; padding-top: 50px; }
+    .mPodcastsInfo { padding: 30px; text-align: center;
+      a { padding: 15px 10px; margin: 0 10px; display: block;
+        &:first-child { margin: 20px 10px; }
+      }
+    }
   }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
-  @media ($md-dn) {
-    background-color: pink;
-  }
+  @media ($md-dn) {}
 
   @media ($sm-dn) {}
 
@@ -27,13 +38,33 @@
 
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
-  @media ($sm-up) {}
+  @media ($sm-up) {
+
+    .oLatestPodcastBlock {
+      .oColPodcasts { padding-top: 0; }
+      .aPodcastIcon { max-width: 100px; height: auto; }
+      .aArrowIcon { width: 150px; transform: rotate(0deg);  }
+      .mPodcastsInfo { margin-top: 50px;
+        a {  margin: 0 10px; display: inline-block; min-width: 250px;
+          &:first-child { margin: 0 10px; }
+        }
+      }
+      .oColFeatured { order: 2; }
+      .oColPodcasts { order: 1; }
+    }
+  }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
 
-  @media ($md-up) {}
+  @media ($md-up) {
+    .oLatestPodcastBlock {
+      .oColPodcasts { align-self: center; }
+      .aPodcastIcon { vertical-align: top; }
+      .aArrowIcon { vertical-align: top; }
+    }
+  }
 
   // D. END +++++++++++++++++++++++++++++++++++++++++++++++
 

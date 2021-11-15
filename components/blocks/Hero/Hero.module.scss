@@ -4,18 +4,18 @@
 .oHeroBlock {
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
-
-  background-color: red;
-
-  .kdWow { border: 1px solid yellow; }
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+    .oContentRow { max-height: 600px; @include aspect-ratio(auto, 56.5%); }
+    .oContentBlock { align-self: center;
+      .aImage { max-width: 50%; margin: 0 0 50px auto; display: block; }
+      .aText { text-align: center; }
+    }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
-  @media ($md-dn) {
-    background-color: pink;
-  }
+  @media ($md-dn) {}
 
   @media ($sm-dn) {}
 
@@ -23,7 +23,13 @@
 
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
-  @media ($sm-up) {}
+  @media ($sm-up) {
+
+      .oContentBlock {
+        .aImage { max-width: 300px; margin: 20px auto; }
+      }
+
+  }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -1,9 +1,7 @@
 import React from "react";
-import classes from "../ServicesCarousel/ServicesCarousel.module.scss";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import classes from "../ServicesCarousel/ServicesCarousel.module.scss";
 
 export function ServicesCarousel({ Services }) {
 
@@ -36,8 +34,8 @@ export function ServicesCarousel({ Services }) {
 
   return (
     <div className={classes.oServicesBlock}>
-      <div className="container">
-        <div className="row">
+      <div className={`container`}>
+        <div className={`row no-gutters`}>
           <h2 className={classes.aBlockTitle}>EPOKOTHWENI SERVICES</h2>
           <p className={classes.aBlockDesc}>Services offered fully bilingually in English and Isixhosa according to client preference</p>
           <Slider {...settings}>

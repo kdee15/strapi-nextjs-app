@@ -1,12 +1,13 @@
-// COMPONENT [ CONTENT BLOCK ] ########################################################################################
-@import "../../../scss/.base/module-index";
+// COMPONENT [ TEXT IMAGE BLOCK ] #####################################################################################
+@import "scss/.base/module-index";
 
-.oServicesBlock {
+.oTextImageBlock {
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .aBlockTitle { margin: 50px auto 20px; text-align: center; }
-  .aBlockDesc { margin: 0 auto 50px; text-align: center; }
+  .oBlockBody {  }
+  .oBlockImage { margin-bottom: 30px;}
+
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -20,7 +21,18 @@
 
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
-  @media ($sm-up) {}
+  @media ($sm-up) {
+
+    .oBlockBody { padding-left: 12%; align-self: center; }
+    .oBlockImage { align-self: center; margin-bottom: 0; }
+
+    &.__altYes {
+      .oBlockBody { order: 1; padding-left: 0; padding-right: 12%; }
+      .oBlockImage { order: 2; }
+    }
+
+
+  }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
 
