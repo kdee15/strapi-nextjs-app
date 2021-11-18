@@ -48,8 +48,6 @@ export function ServicesCarousel({ Services }) {
           </Slider>
         </div>
       </div>
-
     </div>
-
   );
 }

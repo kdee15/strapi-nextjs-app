@@ -1,24 +1,31 @@
 import React from "react";
-import { fetchQuery } from "../helpers/utils";
 import Layout from "../components/Layout";
 import Link from "next/link";
+import Image from "next/image";
 const { BASE_URL } = require("../helpers/config");
+import { fetchQuery } from "../helpers/utils";
 import ReactMarkdown from "react-markdown";
+import Hero from "../components/blocks/Hero/Hero";
 import TextImageComponent from "../components/blocks/TextImageComponent/TextImageComponent";
 import {ServicesCarousel} from "../components/organisms/ServicesCarousel/ServicesCarousel";
-import { PodcastsCard } from "../components/organisms/PodcastsCard/PodcastsCard";
+import {PodcastsCard} from "../components/organisms/PodcastsCard/PodcastsCard";
 import classes from "../styles/Home.module.scss";
-import Hero from "../components/blocks/Hero/Hero";
 
-export default function Home({ Pages, Podcasts, Services }) {
+export default function Home({ Pages, Podcasts, Services, Footer }) {
+  console.log(Footer);
   const headerBlock = Pages[0].blocks[0];
   const aboutBlock = Pages[0].blocks[2];
   const companyBlock = Pages[0].blocks[3];
+  const socialLinks = Footer.social_links;
+  const footerMenuLinks = Footer.footerMenu1;
+  const footerMenuIcons = Footer.showIcon;
+  const footerMenuText = Footer.showIconLinkText;
+
   return (
     <Layout title="Homepage" description="Podcasts Website Homepage">
       <div className={classes.oHomePage}>
         {/*PAGE HERO BLOCK*/}
-        <Hero contentModule={headerBlock}></Hero>
+        <Hero contentModule={headerBlock}/>
         {/*END: PAGE HERO BLOCK*/}
 
         {/*LATEST PODCAST BLOCK*/}
@@ -58,12 +65,12 @@ export default function Home({ Pages, Podcasts, Services }) {
             <div className={`col`}>
               <div className={classes.mPodcastsInfo}>
                 <Link href={`/podcasts`} >
-                  <a className={`aBtn a-fnt-16s`}>
+                  <a className={`aBtn a-fnt-16s`} rel="noopener">
                     Read about podcasts
                   </a>
                 </Link>
                 <Link href={`https://open.spotify.com/show/6uYibsPUFb73e4dTFuDQbm`} >
-                  <a className={`aBtn a-fnt-16s btnAlt`} target={`_blank`}>
+                  <a className={`aBtn a-fnt-16s btnAlt`} target={`_blank`} rel="noopener">
                     View episodes on Spotify
                   </a>
                 </Link>
@@ -82,6 +89,76 @@ export default function Home({ Pages, Podcasts, Services }) {
         <TextImageComponent contentModule={companyBlock} />
         {/*END ABOUT COMPANY BLOCK*/}
       </div>
+      {/*FOOTER BLOCK*/}
+      <footer className={classes.oFooter}>
+        <div className={`container`}>
+          <div className={`row`}>
+            <nav className={`col-12 col-md-3 footer-col-1`}>
+              <figure className={classes.aFooterLogo}>
+                <Image
+                  className={`${classes.aImage} a-responsive-image`}
+                  src={`${BASE_URL}${Footer.footer_logo.url}`}
+                  alt={`site logo`}
+                  width={Footer.footer_logo.width}
+                  height={Footer.footer_logo.height}
+                />
+              </figure>
+              <ul className={`${classes.oIconList} oFooterMenu _icons-${Footer.showIcon} _dir-${Footer.menu_direction}`}>
+                {socialLinks.map((socialLink) => (
+                  <li key={socialLink.id} className={`${classes.mLinkItem} m-link-item`}>
+                    <Link href={socialLink.URL}>
+                      { footerMenuIcons ?
+                        <a target={socialLink.isExternal} className={`${classes.mLink} m-link`}  rel={`noopener`}>
+                          <figure className={`${classes.mIcon} m-icon`}>
+                            <Image
+                              className={`${classes.aIcon} a-icon`}
+                              src={`${BASE_URL}${socialLink.icon.url}`}
+                              alt={socialLink.title}
+                              width={socialLink.icon.width}
+                              height={socialLink.icon.height}
+                            />
+                          </figure>
+                          { footerMenuText
+                            ? <span className={`${classes.aLinkText} a-link-text`}>{socialLink.title}</span>
+                            : <span></span>
+                          }
+                        </a>
+                        :<a target={socialLink.isExternal}><span className={`${classes.aLinkText} a-link-text`}>{socialLink.title}</span></a>
+                      }
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+            </nav>
+            <nav className={`col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-2 footer-col-2`}>
+              <ul className={`${classes.oFooterList} oFooterMenu _icons-${Footer.showIcon} _dir-${Footer.FooterMenu1_direction}`}>
+                {footerMenuLinks.map((footerMenuLink) => (
+                  <li key={footerMenuLink.id} className={`aListItem`}>
+                    <Link href={footerMenuLink.href}>
+                      <a target={footerMenuLink.isExternal} className={`aFooterLink a-fnt-16s`} rel={`noopener`}>
+                        {footerMenuLink.label}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className={`col-12 col-md-3 footer-col-3`}>
+              <figure className={`${classes.mQRCode} mWhatsappQR`}>
+                <Image
+                  className={`${classes.aImage} a-responsive-image`}
+                  src={`${BASE_URL}${Footer.whatsapp_qr_code.url}`}
+                  alt={`Whatsapp QR Code`}
+                  width={Footer.whatsapp_qr_code.width}
+                  height={Footer.whatsapp_qr_code.height}/>
+              </figure>
+              <p className={`${classes.aFooterText} aWhatsappText a-fnt-16s`}>{Footer.whatsapp_message}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      {/*END FOOTER BLOCK*/}
     </Layout>
   );
 }
@@ -90,11 +167,13 @@ export async function getServerSideProps() {
   const Podcasts = await fetchQuery("Podcasts");
   const Pages = await fetchQuery("Pages");
   const Services = await fetchQuery("Services");
+  const Footer = await fetchQuery("Footer");
   return {
     props: {
       Podcasts,
       Pages,
       Services,
+      Footer,
     },
   };
 }

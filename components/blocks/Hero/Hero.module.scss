@@ -5,11 +5,13 @@
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
   background-size: cover; background-position: center; background-repeat: no-repeat;
-    .oContentRow { max-height: 600px; @include aspect-ratio(auto, 56.5%); }
-    .oContentBlock { align-self: center;
-      .aImage { max-width: 50%; margin: 0 0 50px auto; display: block; }
-      .aText { text-align: center; }
-    }
+
+  .oContentRow { max-height: 600px; @include aspect-ratio(auto, 56.5%); }
+  .oContentBlock { align-self: center;
+    .mImage { max-width: 50%; margin: 0 0 0 auto; }
+    .aImage { margin: 0 0 50px auto; display: block; }
+    .aText { text-align: center; }
+  }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -26,7 +28,8 @@
   @media ($sm-up) {
 
       .oContentBlock {
-        .aImage { max-width: 300px; margin: 20px auto; }
+        .mImage { max-width: 300px; margin: 0 auto; }
+        .aImage {margin: 20px auto; }
       }
 
   }

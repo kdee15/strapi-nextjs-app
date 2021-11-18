@@ -1,17 +1,17 @@
-// COMPONENT [ CONTENT BLOCK ] ########################################################################################
-@import "scss/.base/module-index";
+// COMPONENT [ FOOTER BLOCK ] #########################################################################################
+@import "../../../scss/.base/module-index";
 
-.oContent { padding: 50px 0;
+.oFooter {
 
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
+  background-color: red;
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
-  @media ($md-dn) {
-  }
+  @media ($md-dn) {}
 
   @media ($sm-dn) {}
 

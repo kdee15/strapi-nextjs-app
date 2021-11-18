@@ -1,6 +1,21 @@
 // PAGE LAYOUT [ HOMEPAGE ] ###########################################################################################
 @import "scss/.base/module-index";
 
+.oFooter { background-color: $grey-02;
+  .aFooterLogo { max-width: 300px; margin: 0 auto;
+    .aImage { width: 100% !important; height: 100%!important; }
+  }
+  .oIconList { list-style-type: none; padding: 0; margin: 0;
+    .mLink { display: block; text-decoration: none; color: white; padding: 0; margin: 0;
+      .mIcon { display: inline-block; vertical-align: middle; }
+    }
+  }
+  .mQRCode { max-width: 150px; margin: 0 auto; }
+  .aFooterText { text-align: center; }
+  .oFooterList { list-style-type: none; padding: 0; margin: 0; }
+}
+
+
 .oHomePage {
 
   background-color: #070b0e;
@@ -25,6 +40,7 @@
       }
     }
   }
+
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
 

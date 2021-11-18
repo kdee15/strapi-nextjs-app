@@ -15,11 +15,6 @@ function Carousel(props) {
         </div>
       </div>
     </section>
-
-
-
-
-
   )
 }
 

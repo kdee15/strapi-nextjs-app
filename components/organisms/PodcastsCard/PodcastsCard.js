@@ -21,7 +21,7 @@ export function PodcastsCard({ Podcast }) {
         </div>
         <div className={classes.mCtaRegion}>
           <Link href={`/podcasts/${Podcast.slug}`}>
-            <a className={`${classes.mTextIconLink} a-fnt-16s`}>
+            <a className={`${classes.mTextIconLink} a-fnt-16s`} rel="noopener">
               <svg className={classes.aLinkIcon} preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100">
               <path id="aLine" d="M69.5,66.7c-0.3,0.3-0.2,0.8,0.1,1.1c0.1,0.1,0.3,0.2,0.5,0.2c0.2,0,0.4-0.1,0.6-0.3c3.5-4.6,5.4-10,5.4-15.8
 	c0-14.3-11.7-26-26-26c-14.3,0-26,11.7-26,26c0,5.8,1.9,11.2,5.4,15.8c0.3,0.3,0.7,0.4,1.1,0.1c0.3-0.3,0.4-0.7,0.1-1.1
@@ -42,7 +42,7 @@ export function PodcastsCard({ Podcast }) {
             </a>
           </Link>
           <Link href={`${Podcast.URL}`}>
-            <a className={`${classes.mTextIconLink} a-fnt-16s`} target={`_blank`}>
+            <a className={`${classes.mTextIconLink} a-fnt-16s`} target={`_blank`} rel="noopener">
               <svg className={classes.aLinkIcon} preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg"
                    x="0px" y="0px" viewBox="0 0 50 50" role="presentation"
                    aria-hidden="true">

@@ -1,6 +1,9 @@
-const { BLOG_API_ENDPOINT } = require("../helpers/config");
+import classes from "../styles/Home.module.scss";
+
+const { BLOG_API_ENDPOINT,BASE_URL } = require("../helpers/config");
 import Layout from "../components/Layout";
 import DynamicBlocks from "../components/blocks/DynamicBlocks";
+import React from "react";
 
 export default function Pages({ Page }) {
   return (
